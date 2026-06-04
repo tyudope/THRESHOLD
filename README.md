@@ -1,16 +1,14 @@
-
-
 # THRESHOLD
 
-THRESHOLD is a cyberpunk customs-interrogation game inspired by *Papers,
-Please*. The player is Inspector Selim-X at Gate 9 of New Astrakov, a sealed
-city-state in 2077. Across a single real-time 5:00 shift, the player processes
-five travelers: reading their documents against the day's State directives,
-interrogating the suspicious ones, and ruling approve, deny, or detain on each.
-Mistakes cost rent and accumulate against the player. The shift resolves into
-one of three endings — PROMOTED, CONTINUE THE SHIFT, or ARRESTED — the last of
-which inverts the premise: Inspector Halmos arrives, reads the player's own
-wrong verdicts back to them, and the player must accept their fate.
+THRESHOLD is a cyberpunk customs game inspired by *Papers, Please*. You play
+Inspector Selim-X, working Gate 9 of New Astrakov, a sealed city-state in 2077.
+You get one real-time 5:00 shift to process five travelers. Read their papers
+against the day's State directives, lean on the suspicious ones, and decide
+whether to approve, deny, or detain each of them. Every mistake costs you rent
+and goes on your record. How the shift ends depends on how you do: you either
+get PROMOTED, just CONTINUE THE SHIFT, or end up ARRESTED. That last one flips
+the whole thing around. Inspector Halmos shows up, reads your own bad calls
+back to you, and there's nothing left to do but take it.
 
 ## Screenshots
 
@@ -22,17 +20,17 @@ wrong verdicts back to them, and the player must accept their fate.
 
 ## How to run
 
-Two run modes. Both require Python 3.10+.
+There are two ways to play. Both need Python 3.10 or newer.
 
-### CLI version (recommended for any terminal)
+### CLI version (works in any terminal)
 
 ```bash
 python3 main.py
 ```
 
-No dependencies — standard library only. The terminal needs to support ANSI
-colors (any modern Linux/macOS terminal, or Windows Terminal). Polish
-diacritics render via UTF-8.
+No dependencies, just the standard library. Your terminal needs to handle ANSI
+colors, which any modern Linux or macOS terminal does (on Windows, use Windows
+Terminal). Polish characters render fine as long as the terminal is UTF-8.
 
 ### GUI version (tkinter)
 
@@ -40,74 +38,75 @@ diacritics render via UTF-8.
 python3 main_gui.py
 ```
 
-Requires a Python build with tkinter (the standard `python3` on Ubuntu, macOS
-system Python, and the Windows installer ships with it). Some pyenv-built
-interpreters omit tkinter; if you see `ModuleNotFoundError: No module named
-'_tkinter'`, run with a system Python or rebuild your interpreter against
-Tcl/Tk.
+You'll need a Python build that includes tkinter. The standard `python3` on
+Ubuntu, the system Python on macOS, and the Windows installer all ship with it.
+Some pyenv-built interpreters leave it out. If you get `ModuleNotFoundError: No
+module named '_tkinter'`, run it with a system Python or rebuild your
+interpreter against Tcl/Tk.
 
 ## Gameplay
 
-- One shift, five travelers, a 5:00 countdown clock.
-- Four actions per traveler: Approve, Deny, Detain, and Interrogate (max two
-  questions per traveler, -15s each).
-- After each verdict, its reason — why it was correct, wrong, or a moral
-  violation — lingers for 8 seconds before the next traveler steps up.
-- A note arrives between travelers one and two — read it (-5s) or ignore it.
-  The choice changes Halmos's final line if the player is arrested.
-- The wounded refugee (Orel Thane): the directives say deny, but conscience may
-  say otherwise. Approving costs less rent than other errors yet still counts
-  as a violation.
-- The bribe (Ven Narith): accept it on the third interrogation question for +2
-  rent and a darker promoted ending.
-- Three consecutive errors or five total errors trigger an arrest. Halmos
-  reads the player's wrong verdicts aloud, and the player must ACCEPT YOUR FATE.
+- One shift, five travelers, a 5:00 clock counting down the whole time.
+- Four things you can do with each traveler: Approve, Deny, Detain, or
+  Interrogate (up to two questions each, 15 seconds a question).
+- A note shows up between traveler one and two. Read it (costs 5 seconds) or
+  skip it. Your choice changes Halmos's last line if you get arrested.
+- After each verdict, the reason it was right, wrong, or a moral slip stays on
+  screen for 8 seconds before the next traveler steps up, so you can actually
+  read why.
+- The wounded refugee, Orel Thane: the rules say deny, but you might not want
+  to. Approving him costs less rent than a normal mistake, but it still counts
+  against you.
+- The bribe, Ven Narith: take it on his third question for +2 rent and a
+  darker promoted ending.
+- Three wrong calls in a row, or five total, and you're flagged. Halmos reads
+  your mistakes out loud and you have to ACCEPT YOUR FATE.
 
 ## Architecture
 
-- **exceptions.py** — custom exception hierarchy: a `ThresholdError` base with
-  validation errors and control-flow signals.
-- **models/** — pure data classes with validation at construction
+- **exceptions.py**: the custom exception hierarchy. One `ThresholdError` base,
+  with validation errors and control-flow signals underneath it.
+- **models/**: plain data classes that validate themselves at construction
   (Traveler/Document/Permit, Directive/RuleSet, Question/InterrogationSession,
   ShiftState/WrongVerdict).
-- **core/** — game logic: the validator (rule engine), lie detector
-  (regex-based contradiction detection), clock (threaded real-time countdown),
-  internal_affairs (arrest sequence with generator-based speech), verdict
-  (end-of-shift scoring), and catalog (JSON loader).
-- **storage/** — a generic JSON repository and serializer pair.
-- **data/** — game content as JSON (travelers, directives, dialogue).
-- **cli/** — terminal presentation: theme constants, custom decorators
+- **core/**: the actual game logic. The validator (rule engine), the lie
+  detector (regex-based contradiction checks), the clock (a threaded real-time
+  countdown), internal_affairs (the arrest sequence, built on a generator),
+  verdict (end-of-shift scoring), and catalog (the JSON loader).
+- **storage/**: a small, generic JSON repository and serializer pair.
+- **data/**: all the game content as JSON (travelers, directives, dialogue).
+- **cli/**: the terminal side. Theme constants, a couple of custom decorators
   (`@log_action`, `@reveal_slowly`), pure rendering functions, and the main
-  game loop with match-case dispatch.
-- **gui/** — tkinter presentation: shared theme constants, reusable widgets,
-  and a main window orchestrating the same flow as the CLI.
+  loop with match-case dispatch.
+- **gui/**: the tkinter side. Shared theme constants, reusable widgets, and a
+  main window that drives the same flow as the CLI.
 
-Both presentation layers consume the same domain modules. No game rules are
-duplicated between `cli/` and `gui/`.
+Both front ends run on the same domain code. None of the game rules are copied
+between `cli/` and `gui/`.
 
 ## Key design decisions
 
-- **Composition over inheritance** — a Traveler has-a Document and has-a
-  Permit rather than subclassing them.
-- **Validation at the boundary** — constructors reject invalid data, so
-  downstream code can trust every object it receives.
-- **Functional core, imperative shell** — the validator and lie detector are
-  pure functions; `ShiftState` owns all mutation.
-- **Custom exception hierarchy with a sealed root** — a single `ThresholdError`
-  base keeps top-level handling clean.
-- **Dispatch table for rules** — the `RULE_CHECKERS` dict maps `rule_id`
-  strings to checker functions, making a new rule a one-line addition.
-- **Generator for dramatic speech** — `generate_review_speech` yields lines
-  lazily, letting each consumer (CLI or GUI) control pacing.
-- **Two entry points, one domain** — the GUI reuses every `core/` and `models/`
-  module without re-implementing a single rule.
+- **Composition over inheritance**: a Traveler has a Document and a Permit
+  instead of subclassing them.
+- **Validation at the boundary**: constructors reject bad data up front, so the
+  rest of the code can trust whatever it gets handed.
+- **Functional core, imperative shell**: the validator and lie detector are
+  pure functions. `ShiftState` is the only thing that mutates.
+- **One sealed exception root**: everything hangs off `ThresholdError`, which
+  keeps the top-level error handling simple.
+- **Dispatch table for rules**: `RULE_CHECKERS` maps each `rule_id` to its
+  checker function, so adding a rule is a one-line change.
+- **A generator for the arrest speech**: `generate_review_speech` yields its
+  lines lazily, so the CLI and GUI can each pace it their own way.
+- **Two front ends, one set of rules**: the GUI reuses every `core/` and
+  `models/` module without reimplementing anything.
 
 ## Python features used
 
 - Classes with `__init__` validation, `__repr__`, and methods.
 - A custom exception hierarchy.
 - Generators (`yield`, `yield from`).
-- Decorators, including parameterized decorators and `@functools.wraps`.
+- Decorators, including parameterized ones and `@functools.wraps`.
 - Regular expressions: compiled patterns, `re.IGNORECASE`, `\b` word boundaries.
 - List, dict, and set comprehensions.
 - Lambdas for `sorted(key=...)`.
@@ -121,8 +120,7 @@ duplicated between `cli/` and `gui/`.
 
 ## Project conventions
 
-- All file I/O is UTF-8 with `ensure_ascii=False`, so Polish diacritics in
-  sector names (POZNAŃ, KRAKÓW, and others) render natively.
-- Action logging goes to `data/actions.log` via the `@log_action` decorator on
-  game-entry functions.
-
+- All file I/O is UTF-8 with `ensure_ascii=False`, so the Polish characters in
+  sector names like POZNAŃ and KRAKÓW show up correctly.
+- Action logging goes to `data/actions.log` through the `@log_action` decorator
+  on the game-entry functions.

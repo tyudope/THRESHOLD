@@ -8,8 +8,8 @@ layer in cli/ui.py. This module owns all flow control and player input; it
 delegates every pixel of output to ui.py and every rule to core/.
 
 Control flow uses two project exceptions as signals:
-  ShiftExpiredError    — the clock hit zero mid-action
-  ReviewTriggeredError — Internal Affairs intervened (3 streak / 5 total errors)
+  ShiftExpiredError    - the clock hit zero mid-action
+  ReviewTriggeredError - Internal Affairs intervened (3 streak / 5 total errors)
 Both are caught at the top of run_game() and routed to the end-of-shift screen.
 """
 
@@ -152,7 +152,7 @@ def _run_interrogation(state, clock, traveler):
                 ui.render_bribe_taken_feedback()
                 time.sleep(FEEDBACK_PAUSE_SECONDS)
                 return "bribe"
-            # Refused — the traveler stays; continue interrogating or verdict.
+            # Refused - the traveler stays; continue interrogating or verdict.
 
         if not session.can_ask_more():
             print(theme.colored("  That was your last question. [B] to decide.", theme.GRAY))
@@ -180,7 +180,7 @@ def _play_case(state, clock, ruleset, traveler, case_number):
                 if outcome == "bribe":
                     state.advance_traveler()
                     return
-                # "back" — redraw the action screen on the next loop.
+                # "back" - redraw the action screen on the next loop.
 
             case "A" | "D" | "X":
                 action = {"A": "approve", "D": "deny", "X": "detain"}[choice]

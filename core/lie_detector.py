@@ -16,7 +16,7 @@ from models.traveler import Traveler
 from models.interrogation import Question
 
 
-# Compiled regex patterns — compiled once at module load
+# Compiled regex patterns - compiled once at module load
 
 # Neural ID format: NID-XXXX-X-XXXX-XX where X is alphanumeric
 # Example: NID-7741-X-44A2-9F
@@ -38,7 +38,7 @@ FORBIDDEN_LOCATION_PATTERNS = {
 # Reasons paired with each forbidden pattern
 FORBIDDEN_LOCATION_REASONS = {
     "docks_dont_exist": (
-        "Astrakov is a sealed inland city — no docks, harbours, or ports exist."
+        "Astrakov is a sealed inland city - no docks, harbours, or ports exist."
     ),
     "eastern_corridor_doesnt_exist": (
         "Astrakov has no eastern corridor or sector C. "
@@ -82,7 +82,7 @@ def detect_contradictions(answer_text, traveler):
         traveler: the Traveler instance (for context-aware checks later)
 
     Returns:
-        list of (pattern_id, reason) tuples — empty if no contradictions
+        list of (pattern_id, reason) tuples - empty if no contradictions
     """
     if not isinstance(answer_text, str):
         raise TypeError(
@@ -155,7 +155,7 @@ def is_traveler_lying(traveler, asked_questions):
                 f"all asked_questions must be Question instances, "
                 f"got {type(question).__name__}"
             )
-        # Authored contradiction flag — fastest check
+        # Authored contradiction flag - fastest check
         if question.has_contradiction():
             return True
         # Regex pattern match in the answer text

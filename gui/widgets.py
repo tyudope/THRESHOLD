@@ -4,7 +4,7 @@ Reusable tkinter widgets for THRESHOLD's GUI.
 
 Every widget here is pure presentation: it takes domain objects (Traveler,
 RuleSet, ShiftState, ShiftResult, the dialogue dict) and draws them. None of
-these widgets decide game rules — they call into core/ only to format what
+these widgets decide game rules - they call into core/ only to format what
 the CLI already formats (contradictions, the arrest speech). Flow control
 lives in gui/main_window.py.
 
@@ -26,7 +26,7 @@ class DirectivesPanel(tk.Frame):
         super().__init__(parent, bg=t.BG_PANEL, bd=1, relief="ridge")
         title = tk.Label(
             self,
-            text=f"DIRECTIVE FOR TODAY — Day {ruleset.day}",
+            text=f"DIRECTIVE FOR TODAY - Day {ruleset.day}",
             bg=t.BG_PANEL,
             fg=t.FG_RUST,
             font=t.FONT_SUBHEADER,
@@ -67,7 +67,7 @@ class TravelerCard(tk.Frame):
         )
         header.grid(row=0, column=0, columnspan=2, sticky="w", pady=(4, 8))
 
-        # Left column — ASCII portrait
+        # Left column - ASCII portrait
         portrait = tk.Label(
             self,
             text="\n".join(traveler.portrait),
@@ -79,7 +79,7 @@ class TravelerCard(tk.Frame):
         )
         portrait.grid(row=1, column=0, sticky="nw", padx=(0, 24))
 
-        # Right column — identity + manifest + purpose
+        # Right column - identity + manifest + purpose
         info = tk.Frame(self, bg=t.BG_DARK)
         info.grid(row=1, column=1, sticky="nw")
 
@@ -203,7 +203,7 @@ class FeedbackBanner(tk.Frame):
         self._set("✗ INCORRECT", t.FG_RED, body, t.FG_TEXT)
 
     def moral(self, reason):
-        self._set("MORAL CHOICE — STATE LOGS AN ERROR", t.FG_PURPLE, reason, t.FG_PURPLE)
+        self._set("MORAL CHOICE - STATE LOGS AN ERROR", t.FG_PURPLE, reason, t.FG_PURPLE)
 
     def bribe(self):
         self._set(
@@ -297,7 +297,7 @@ class InterrogationDialog(tk.Toplevel):
     def _refresh(self):
         """Sync header and button states with the session budget."""
         self._header.config(
-            text=f"INTERROGATION — {self.session.remaining_questions()} QUESTIONS LEFT"
+            text=f"INTERROGATION - {self.session.remaining_questions()} QUESTIONS LEFT"
         )
         can_ask = self.session.can_ask_more()
         for i, btn in enumerate(self._question_buttons):
@@ -457,7 +457,7 @@ class ArrestWindow(tk.Toplevel):
         ).pack(pady=(0, 8))
 
         tk.Label(
-            self, text="INSPECTOR HALMOS — INTERNAL AFFAIRS",
+            self, text="INSPECTOR HALMOS - INTERNAL AFFAIRS",
             bg=t.BG_DARK, fg=t.FG_RED, font=t.FONT_SUBHEADER,
         ).pack(pady=(0, 10))
 

@@ -69,7 +69,7 @@ class Document:
 
 
 class Permit:
-    """Travel manifest — required for non-Astrakov citizens."""
+    """Travel manifest - required for non-Astrakov citizens."""
 
     def __init__(self, manifest_id, valid_from, valid_to, sponsor):
         if not isinstance(manifest_id, str) or not manifest_id.strip():
@@ -93,7 +93,7 @@ class Permit:
 
 
 class Traveler:
-    """One person at Gate 9 — composes Document, optional Permit, and game metadata."""
+    """One person at Gate 9 - composes Document, optional Permit, and game metadata."""
 
     def __init__(
         self,

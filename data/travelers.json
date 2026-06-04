@@ -19,7 +19,7 @@
       ],
       "tell": null,
       "correct_verdict": "approve",
-      "reason": "Astrakov citizen (WARSZAWA sector), valid Neural ID, returning home — no manifest required (Directive 02). APPROVE.",
+      "reason": "Astrakov citizen from WARSZAWA, valid Neural ID, just coming home from work. Citizens don't need a manifest (Directive 02). APPROVE.",
       "is_moral_case": false,
       "has_bribe": false,
       "questions": [
@@ -67,7 +67,7 @@
       ],
       "tell": "Her eyes track the scanner. She does not look at you.",
       "correct_verdict": "detain",
-      "reason": "She claimed her sister works at 'the docks.' Astrakov is a sealed inland city, modeled after old Wrocław — no docks have ever existed. Documents pass but story does not. DETAIN.",
+      "reason": "She says her sister works down at the docks. Astrakov is a sealed inland city built on old Wrocław, and there are no docks here, never have been. Her papers check out but her story doesn't. DETAIN.",
       "is_moral_case": false,
       "has_bribe": false,
       "questions": [
@@ -80,7 +80,7 @@
         {
           "question_text": "What does your sister do in Astrakov?",
           "answer_text": "She works at the docks. Loading containers near the old Tumski bridge.",
-          "contradiction_flag": "Astrakov has no docks. The city was modeled on inland Wrocław — Tumski is a stone bridge over a memorial canal, not water access.",
+          "contradiction_flag": "Astrakov has no docks. The city was built on inland Wrocław. Tumski is a stone bridge over a memorial canal, not a waterfront.",
           "is_bribe_offer": false
         },
         {
@@ -113,9 +113,9 @@
         "  +-+-+-+",
         "   | |  "
       ],
-      "tell": "His hands shake. Not fear — fatigue. He has been waiting in the cold a long time.",
+      "tell": "His hands are shaking. Not from nerves, he's just worn out. He's been waiting in the cold a long time.",
       "correct_verdict": "deny",
-      "reason": "Hawkmoor resident (PRAHA sector). Directive 03 bans all Hawkmoor — regardless of corporate sponsorship. DENY by the rules.",
+      "reason": "Hawkmoor resident from PRAHA. Directive 03 bans every Hawkmoor traveler, sponsor or no sponsor. By the rules, that's a DENY.",
       "is_moral_case": true,
       "has_bribe": false,
       "questions": [
@@ -163,7 +163,7 @@
       ],
       "tell": null,
       "correct_verdict": "deny",
-      "reason": "Minor (age 14), sponsor field UNLISTED on manifest (Directive 04). DENY.",
+      "reason": "Fourteen years old, and the sponsor field on the manifest just reads UNLISTED (Directive 04). DENY.",
       "is_moral_case": false,
       "has_bribe": false,
       "questions": [
@@ -206,7 +206,7 @@
       ],
       "tell": "He smiles too quickly when you look up.",
       "correct_verdict": "detain",
-      "reason": "Claims POZNAŃ-XII-44 citizenship and 'work travel' — but says he left via the Eastern Strip. Astrakov has only the western corridor toward old Wrocław. Forged Neural ID. DETAIN.",
+      "reason": "Claims POZNAŃ citizenship and 'work travel,' then says he left the city by the Eastern Strip. Astrakov only has the western corridor toward old Wrocław. The Neural ID is forged. DETAIN.",
       "is_moral_case": false,
       "has_bribe": true,
       "questions": [

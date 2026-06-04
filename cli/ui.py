@@ -3,7 +3,7 @@
 Pure rendering layer for THRESHOLD.
 
 Every function here builds and prints one screen or component. Nothing in
-this module makes a game-logic decision or reads input — it only takes the
+this module makes a game-logic decision or reads input - it only takes the
 objects it needs and turns them into colored text. All game flow lives in
 cli/menu.py; all theming lives in cli/theme.py.
 """
@@ -43,8 +43,8 @@ def render_title_screen():
 # Directives
 
 def render_directives(ruleset):
-    """List today's directives — critical ones in red."""
-    print(theme.colored(theme.header(f"DIRECTIVE FOR TODAY — Day {ruleset.day}", WIDTH), theme.RUST))
+    """List today's directives - critical ones in red."""
+    print(theme.colored(theme.header(f"DIRECTIVE FOR TODAY - Day {ruleset.day}", WIDTH), theme.RUST))
     for directive in ruleset.directives:
         label = f"{directive.number:02d}. {directive.text}"
         if directive.is_critical:
@@ -102,7 +102,7 @@ def render_traveler_card(traveler, case_number, total_cases):
     print(theme.colored("── STATED PURPOSE ──", theme.GRAY))
     print(f"  {theme.dim(traveler.stated_purpose)}")
 
-    # Optional tell — a visual cue the player can read
+    # Optional tell - a visual cue the player can read
     if traveler.tell:
         print()
         print(f"  {theme.dim('* ' + traveler.tell)}")
@@ -147,7 +147,7 @@ def render_interrogation_menu(session, traveler):
     """List the available questions; asked ones are dimmed and disabled."""
     print()
     print(theme.colored(
-        theme.header(f"INTERROGATION — {session.remaining_questions()} QUESTIONS LEFT", WIDTH),
+        theme.header(f"INTERROGATION - {session.remaining_questions()} QUESTIONS LEFT", WIDTH),
         theme.PURPLE,
     ))
     for i, question in enumerate(session.available_questions):
@@ -232,7 +232,7 @@ def render_verdict_feedback(correct, reason, action, rent_change):
 def render_moral_choice_feedback(reason):
     """Purple banner used when the player makes the documented moral violation."""
     print()
-    print(theme.colored(theme.header("MORAL CHOICE — STATE LOGS AN ERROR", WIDTH), theme.PURPLE))
+    print(theme.colored(theme.header("MORAL CHOICE - STATE LOGS AN ERROR", WIDTH), theme.PURPLE))
     print(f"  {theme.colored(reason, theme.PURPLE)}")
     print()
 
@@ -263,7 +263,7 @@ def render_arrest_sequence(state, dialogue):
     print()
     print(theme.colored(theme.boxed(dialogue["halmos_portrait"], WIDTH), theme.RED))
     print()
-    print(theme.colored(theme.header("INSPECTOR HALMOS — INTERNAL AFFAIRS", WIDTH), theme.RED))
+    print(theme.colored(theme.header("INSPECTOR HALMOS - INTERNAL AFFAIRS", WIDTH), theme.RED))
     print()
 
     _speak_review(state, dialogue)

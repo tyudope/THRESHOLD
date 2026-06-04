@@ -1,6 +1,6 @@
 # core/validator.py
 """
-Rules engine — validates a Traveler against a RuleSet of Directives.
+Rules engine - validates a Traveler against a RuleSet of Directives.
 
 Pure functions, no side effects. Each rule has its own function for clarity
 and testability. The orchestrator `validate_traveler` runs them in order and
@@ -59,7 +59,7 @@ def check_manifest_required(traveler):
 def check_hawkmoor_ban(traveler):
     """Directive 03: Hawkmoor nationals are banned regardless of papers."""
     if traveler.document.nationality == "Hawkmoor":
-        return (True, "Hawkmoor resident — Directive 03 bans all Hawkmoor citizens regardless of papers or sponsorship.")
+        return (True, "Hawkmoor resident - Directive 03 bans all Hawkmoor citizens regardless of papers or sponsorship.")
     return (False, "")
 
 
@@ -77,7 +77,7 @@ def check_minor_has_sponsor(traveler):
     return (False, "")
 
 
-# Rule lookup — maps rule_id (from JSON) to checker function
+# Rule lookup - maps rule_id (from JSON) to checker function
 
 RULE_CHECKERS = {
     "valid_neural_id":                check_neural_id_valid,

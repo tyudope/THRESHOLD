@@ -1,6 +1,6 @@
 # models/interrogation.py
 """
-Interrogation data model — one traveler's possible Q&A pairs and the
+Interrogation data model - one traveler's possible Q&A pairs and the
 per-case session state that tracks what the player has asked.
 
 Each Traveler has a list of Question objects loaded with them. When the

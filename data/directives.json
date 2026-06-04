@@ -15,7 +15,7 @@
     },
     {
       "number": 3,
-      "text": "BANNED — Hawkmoor sector residents (regardless of papers).",
+      "text": "BANNED: Hawkmoor sector residents, no exceptions on papers.",
       "rule_id": "hawkmoor_banned",
       "is_critical": true
     },

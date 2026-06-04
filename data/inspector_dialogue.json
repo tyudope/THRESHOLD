@@ -8,7 +8,7 @@
       "   |              |",
       "   +--------------+"
     ],
-    "content": "You'll see me again.\n— Halmos."
+    "content": "You'll see me again.\n- Halmos"
   },
   "halmos_portrait": [
     "       +---------+",
@@ -33,29 +33,29 @@
   },
   "endings": {
     "promoted_clean": [
-      "The Inspector approaches your booth — not to interrogate, but to dismiss you.",
+      "The Inspector comes to your booth. For once he isn't here to question you. He's here to send you home.",
       "",
-      "\"Inspector Selim-X. Your performance has been noted. Report to Senior Review on Monday. The State watches itself well when it watches itself through eyes like yours.\"",
+      "\"Inspector Selim-X. Good numbers today. Report to Senior Review on Monday. We could use more people who watch the gate the way you do.\"",
       "",
-      "You collect your things. The booth is taken over by your replacement before you reach the elevator.",
+      "You grab your coat. By the time you reach the elevator, someone else is already sitting in your chair.",
       "",
-      "You're going up. You don't know what's up there."
+      "You're moving up. Whatever that means up here."
     ],
     "promoted_dark": [
-      "The Inspector approaches your booth — not to interrogate, but to dismiss you.",
+      "The Inspector comes to your booth. For once he isn't here to question you. He's here to send you home.",
       "",
-      "\"Inspector Selim-X. Your performance has been noted. Report to Senior Review on Monday.\"",
+      "\"Inspector Selim-X. Good numbers today. Report to Senior Review on Monday.\"",
       "",
-      "He hands you back your case ledger. \"Your reports balance perfectly. Almost too perfectly. We'll be in touch.\"",
+      "He hands your ledger back. \"Everything balances. A little too neatly, even. We'll be in touch.\"",
       "",
-      "You're going up. There's more than one way up."
+      "You're moving up. There's more than one way to climb in this city."
     ],
     "continue_shift": [
-      "Your shift ends without incident.",
+      "Your shift ends quietly.",
       "",
-      "The Inspector's footsteps fade past your booth. You sit alone with the directives for next week — already updated, already longer.",
+      "The Inspector's footsteps fade past your booth. You're left alone with next week's directives. Already updated. Already longer.",
       "",
-      "Tomorrow is another shift."
+      "Tomorrow there's another shift."
     ]
   }
 }

@@ -53,7 +53,7 @@ def generate_review_speech(state, dialogue):
     yield "Inspector Selim-X."
     yield ""
 
-    # Reason for the review — match-case routes the trigger type
+    # Reason for the review - match-case routes the trigger type
     arrest_intro = dialogue["arrest_intro"]
     if state.consecutive_errors >= 3:
         yield arrest_intro["streak_trigger"]
@@ -64,7 +64,7 @@ def generate_review_speech(state, dialogue):
     # Read out every wrong verdict by case number and traveler name
     for wrong in state.wrong_verdicts:
         yield (
-            f"Traveler #{wrong.case_index} — {wrong.traveler_name}. "
+            f"Traveler #{wrong.case_index} - {wrong.traveler_name}. "
             f"{wrong.violation}"
         )
 
@@ -122,7 +122,7 @@ def select_ending(state, review_triggered=False):
 
 def collect_review_speech(state, dialogue):
     """
-    Materialize the generator into a list — useful for tests or
+    Materialize the generator into a list - useful for tests or
     non-streaming UIs that want all lines at once.
     Demonstrates the same generator above, consumed eagerly.
     """

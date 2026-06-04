@@ -1,6 +1,6 @@
 # gui/main_window.py
 """
-GameWindow — the tkinter front end for THRESHOLD.
+GameWindow - the tkinter front end for THRESHOLD.
 
 This is the GUI sibling of cli/menu.py. It drives the exact same flow
 (title → directives → five travelers with the note before #2 → end of
@@ -55,7 +55,7 @@ class GameWindow(tk.Tk):
         self.geometry(f"{WIDTH}x{HEIGHT}")
         self.configure(bg=t.BG_DARK)
 
-        # Domain objects — created when the shift actually starts.
+        # Domain objects - created when the shift actually starts.
         self.catalog = None
         self.state = None
         self.clock = None
@@ -196,7 +196,7 @@ class GameWindow(tk.Tk):
     # Per-traveler presentation
 
     def _present_traveler(self):
-        """Show the current traveler — with the note interstitial before #2."""
+        """Show the current traveler - with the note interstitial before #2."""
         if self.case_number == 2 and not self.state.note_read:
             self._modal = NoteDialog(self, self.catalog.dialogue, self._on_note_choice)
         else:

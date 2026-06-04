@@ -76,7 +76,7 @@ class ShiftClock:
         Manually deduct seconds from the clock.
         
         Used when the player takes a costly action (interrogation, reading the note).
-        Clamps at 0 — never goes negative.
+        Clamps at 0 - never goes negative.
         """
         if not isinstance(seconds, int) or isinstance(seconds, bool):
             raise TypeError(

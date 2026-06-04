@@ -1,12 +1,12 @@
 # models/directive.py
 """
-Directive and RuleSet models — the State's rules at the start of a shift.
+Directive and RuleSet models - the State's rules at the start of a shift.
 
 Each Directive is a single rule with both human-readable text (shown to
 the player) and a machine identifier (used by the validator). A RuleSet
 groups all directives for one shift.
 
-This file is pure data — validation logic lives in core/validator.py.
+This file is pure data - validation logic lives in core/validator.py.
 """
 
 from exceptions import InvalidDirectiveError

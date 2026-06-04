@@ -16,7 +16,7 @@ LOG_FILE = Path("data/actions.log")
 DEFAULT_CHAR_DELAY = 0.02       # seconds per character
 DEFAULT_LINE_DELAY = 0.6        # seconds between lines
 
-# @log_action — simple decorator, no parameters
+# @log_action - simple decorator, no parameters
 
 def log_action(func):
     """Decorator: logs each call of func to data/actions.log with timestamp."""
@@ -45,7 +45,7 @@ def log_action(func):
 
 def reveal_slowly(line_delay=DEFAULT_LINE_DELAY, char_delay=DEFAULT_CHAR_DELAY):
     """
-    Parameterized decorator. Wraps a generator that yields strings —
+    Parameterized decorator. Wraps a generator that yields strings -
     prints each yielded line character-by-character with delays.
 
     Usage:
@@ -58,7 +58,7 @@ def reveal_slowly(line_delay=DEFAULT_LINE_DELAY, char_delay=DEFAULT_CHAR_DELAY):
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
-            # The wrapped function is a generator — get the generator object
+            # The wrapped function is a generator - get the generator object
             generator = func(*args, **kwargs)
 
             # Iterate over each yielded line

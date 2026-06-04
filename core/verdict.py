@@ -3,7 +3,7 @@
 End-of-shift scoring and result summarization.
 
 Takes the final ShiftState after all travelers have been processed (or
-after an arrest trigger) and produces a structured ShiftResult — the
+after an arrest trigger) and produces a structured ShiftResult - the
 single object the CLI needs to render the ending screen.
 
 This module is pure query: it reads state, it doesn't mutate it. The
@@ -16,7 +16,7 @@ from core.internal_affairs import select_ending
 # Result container
 
 class ShiftResult:
-    """The final summary of one shift — used by the CLI to render the ending."""
+    """The final summary of one shift - used by the CLI to render the ending."""
 
     def __init__(
         self,
@@ -75,7 +75,7 @@ def format_wrong_verdicts(state):
     Wrong verdicts are sorted by case_index so they read out in chronological
     order, matching how Halmos's speech presents them.
 
-    Uses a lambda to extract the sort key — a textbook use of functions
+    Uses a lambda to extract the sort key - a textbook use of functions
     as first-class values.
     """
     if not isinstance(state, ShiftState):
@@ -86,12 +86,12 @@ def format_wrong_verdicts(state):
     sorted_wrongs = sorted(state.wrong_verdicts, key=lambda w: w.case_index)
 
     return [
-        f"#{w.case_index} — {w.traveler_name}: {w.violation}"
+        f"#{w.case_index} - {w.traveler_name}: {w.violation}"
         for w in sorted_wrongs
     ]
 
 
-# Main entry — build a ShiftResult from the final state
+# Main entry - build a ShiftResult from the final state
 
 def compute_shift_result(state, review_triggered=False):
     """
