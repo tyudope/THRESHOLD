@@ -43,7 +43,7 @@ from gui.widgets import (
 
 WIDTH = 920
 HEIGHT = 720
-FEEDBACK_PAUSE_MS = 2000
+FEEDBACK_PAUSE_MS = 8000
 
 
 class GameWindow(tk.Tk):
