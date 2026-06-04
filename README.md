@@ -4,7 +4,7 @@
 
 THRESHOLD is a cyberpunk customs-interrogation game inspired by *Papers,
 Please*. The player is Inspector Selim-X at Gate 9 of New Astrakov, a sealed
-city-state in 2077. Across a single real-time 2:30 shift, the player processes
+city-state in 2077. Across a single real-time 5:00 shift, the player processes
 five travelers: reading their documents against the day's State directives,
 interrogating the suspicious ones, and ruling approve, deny, or detain on each.
 Mistakes cost rent and accumulate against the player. The shift resolves into
@@ -48,9 +48,11 @@ Tcl/Tk.
 
 ## Gameplay
 
-- One shift, five travelers, a 2:30 countdown clock.
+- One shift, five travelers, a 5:00 countdown clock.
 - Four actions per traveler: Approve, Deny, Detain, and Interrogate (max two
   questions per traveler, -15s each).
+- After each verdict, its reason — why it was correct, wrong, or a moral
+  violation — lingers for 8 seconds before the next traveler steps up.
 - A note arrives between travelers one and two — read it (-5s) or ignore it.
   The choice changes Halmos's final line if the player is arrested.
 - The wounded refugee (Orel Thane): the directives say deny, but conscience may
