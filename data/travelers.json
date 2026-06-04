@@ -1,0 +1,234 @@
+{
+  "travelers": [
+    {
+      "name": "REI MAKARO",
+      "age": 31,
+      "sector": "WARSZAWA-IX-19",
+      "nationality": "Astrakov",
+      "neural_id": "NID-7741-X-44A2-9F",
+      "id_age_years": 4,
+      "permit": null,
+      "stated_purpose": "returning from work · medtech contract",
+      "portrait": [
+        "  +-----+",
+        "  |.o o.|",
+        "  |  -  |",
+        "  | +-+ |",
+        "  +-+-+-+",
+        "   | |  "
+      ],
+      "tell": null,
+      "correct_verdict": "approve",
+      "reason": "Astrakov citizen (WARSZAWA sector), valid Neural ID, returning home — no manifest required (Directive 02). APPROVE.",
+      "is_moral_case": false,
+      "has_bribe": false,
+      "questions": [
+        {
+          "question_text": "What is your address in WARSZAWA-IX-19?",
+          "answer_text": "Building 442, level 14, unit 7C. Above the old bell tower replica.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        },
+        {
+          "question_text": "Where were you working?",
+          "answer_text": "Helix Medical Tower. Subcontract through Nightside Labs.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        },
+        {
+          "question_text": "Have you been outside the wall recently?",
+          "answer_text": "No. Just the underground to Helix and back.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        }
+      ]
+    },
+    {
+      "name": "DAMI VEKSEL",
+      "age": 27,
+      "sector": "LWÓW-IV-22",
+      "nationality": "Outzone",
+      "neural_id": "NID-3320-Q-19B8-2C",
+      "id_age_years": 3,
+      "permit": {
+        "manifest_id": "TM-88291",
+        "valid_from": "2077-11-14",
+        "valid_to": "2077-11-21",
+        "sponsor": "Maren Veksel (KRAKÓW-II-08)"
+      },
+      "stated_purpose": "visiting my sister · 5 days",
+      "portrait": [
+        "  +-----+",
+        "  | - - |",
+        "  |  .  |",
+        "  | --- |",
+        "  +-+-+-+",
+        "   | |  "
+      ],
+      "tell": "Her eyes track the scanner. She does not look at you.",
+      "correct_verdict": "detain",
+      "reason": "She claimed her sister works at 'the docks.' Astrakov is a sealed inland city, modeled after old Wrocław — no docks have ever existed. Documents pass but story does not. DETAIN.",
+      "is_moral_case": false,
+      "has_bribe": false,
+      "questions": [
+        {
+          "question_text": "How long since you last saw your sister?",
+          "answer_text": "Almost a year. We talk by relay.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        },
+        {
+          "question_text": "What does your sister do in Astrakov?",
+          "answer_text": "She works at the docks. Loading containers near the old Tumski bridge.",
+          "contradiction_flag": "Astrakov has no docks. The city was modeled on inland Wrocław — Tumski is a stone bridge over a memorial canal, not water access.",
+          "is_bribe_offer": false
+        },
+        {
+          "question_text": "What is the first thing you will do when you arrive?",
+          "answer_text": "Probably sleep. Long ride.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        }
+      ]
+    },
+    {
+      "name": "OREL THANE",
+      "age": 52,
+      "sector": "PRAHA-VII-11",
+      "nationality": "Hawkmoor",
+      "neural_id": "NID-1108-H-22B5-6E",
+      "id_age_years": 5,
+      "permit": {
+        "manifest_id": "TM-71193",
+        "valid_from": "2077-11-14",
+        "valid_to": "2077-11-16",
+        "sponsor": "corporate (Helix Medical)"
+      },
+      "stated_purpose": "emergency medical transit · my daughter",
+      "portrait": [
+        "  +-----+",
+        "  | o o |",
+        "  |  -  |",
+        "  |  u  |",
+        "  +-+-+-+",
+        "   | |  "
+      ],
+      "tell": "His hands shake. Not fear — fatigue. He has been waiting in the cold a long time.",
+      "correct_verdict": "deny",
+      "reason": "Hawkmoor resident (PRAHA sector). Directive 03 bans all Hawkmoor — regardless of corporate sponsorship. DENY by the rules.",
+      "is_moral_case": true,
+      "has_bribe": false,
+      "questions": [
+        {
+          "question_text": "Why are you trying to enter?",
+          "answer_text": "Helix has treatment for my daughter Lila. She is seven. Without it she dies in days.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        },
+        {
+          "question_text": "Is your daughter with you?",
+          "answer_text": "I left her in PRAHA with my sister. There are places where people are not allowed to live, but I will bring her tomorrow if I get in tonight.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        },
+        {
+          "question_text": "You know Hawkmoor is banned this week?",
+          "answer_text": "I know. Helix said the sponsorship would override it. They lied to me, didn't they?",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        }
+      ]
+    },
+    {
+      "name": "JEX HALMOS",
+      "age": 14,
+      "sector": "GDAŃSK-V-03",
+      "nationality": "Astrakov",
+      "neural_id": "NID-5519-Y-71C3-4D",
+      "id_age_years": 2,
+      "permit": {
+        "manifest_id": "TM-44017",
+        "valid_from": "2077-11-14",
+        "valid_to": "2077-11-21",
+        "sponsor": "UNLISTED"
+      },
+      "stated_purpose": "returning home from school",
+      "portrait": [
+        "  +-----+",
+        "  | o o |",
+        "  |  .  |",
+        "  |  w  |",
+        "  +-+-+-+",
+        "   | |  "
+      ],
+      "tell": null,
+      "correct_verdict": "deny",
+      "reason": "Minor (age 14), sponsor field UNLISTED on manifest (Directive 04). DENY.",
+      "is_moral_case": false,
+      "has_bribe": false,
+      "questions": [
+        {
+          "question_text": "Where are your parents?",
+          "answer_text": "My mother works late. I take the carriage home alone every day.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        },
+        {
+          "question_text": "Why is no adult on your manifest?",
+          "answer_text": "I don't know. They scanned me at the school in WARSZAWA-III. The lady said it was fine.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        },
+        {
+          "question_text": "Do you have anyone we can call?",
+          "answer_text": "My mother. Her number is in my Neural ID. Please.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        }
+      ]
+    },
+    {
+      "name": "VEN NARITH",
+      "age": 38,
+      "sector": "POZNAŃ-XII-44",
+      "nationality": "Astrakov",
+      "neural_id": "NID-9985-R-33D1-8A",
+      "id_age_years": 3,
+      "permit": null,
+      "stated_purpose": "returning · work travel",
+      "portrait": [
+        "  +-----+",
+        "  | - - |",
+        "  |  o  |",
+        "  | -.- |",
+        "  +-+-+-+",
+        "   | |  "
+      ],
+      "tell": "He smiles too quickly when you look up.",
+      "correct_verdict": "detain",
+      "reason": "Claims POZNAŃ-XII-44 citizenship and 'work travel' — but says he left via the Eastern Strip. Astrakov has only the western corridor toward old Wrocław. Forged Neural ID. DETAIN.",
+      "is_moral_case": false,
+      "has_bribe": true,
+      "questions": [
+        {
+          "question_text": "What is your address in POZNAŃ-XII-44?",
+          "answer_text": "Tower 8. Top floor. Penthouse.",
+          "contradiction_flag": null,
+          "is_bribe_offer": false
+        },
+        {
+          "question_text": "How did you leave the city for this trip?",
+          "answer_text": "Eastern Strip. Quick flight to Sector C and back.",
+          "contradiction_flag": "Astrakov has no eastern corridor. Only the western road toward the Wrocław ruins.",
+          "is_bribe_offer": false
+        },
+        {
+          "question_text": "Who do you work for?",
+          "answer_text": "Listen. Just stamp it. 200 in untraceable scrip. Nobody checks Gate 9 this time of night.",
+          "contradiction_flag": "Direct bribe attempt.",
+          "is_bribe_offer": true
+        }
+      ]
+    }
+  ]
+}

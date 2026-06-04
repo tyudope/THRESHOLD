@@ -1,0 +1,61 @@
+{
+  "note": {
+    "ascii_art": [
+      "   +--------------+",
+      "   |   \\        / |",
+      "   |    \\  *   /  |",
+      "   |     ------   |",
+      "   |              |",
+      "   +--------------+"
+    ],
+    "content": "You'll see me again.\n— Halmos."
+  },
+  "halmos_portrait": [
+    "       +---------+",
+    "       |         |",
+    "       |  *   *  |",
+    "       |         |",
+    "       |         |",
+    "       +---------+"
+  ],
+  "arrest_intro": {
+    "streak_trigger": "Three consecutive errors this shift. The State has flagged your booth for review.",
+    "total_trigger": "Five errors this shift. The State has flagged your booth for review."
+  },
+  "arrest_verdict": [
+    "You have failed the Republic.",
+    "Your replacement is already at the gate.",
+    "You will not see your family again."
+  ],
+  "arrest_note_callback": {
+    "note_read": "I told you we'd meet again.",
+    "note_ignored": "You should have read the note, Inspector."
+  },
+  "endings": {
+    "promoted_clean": [
+      "The Inspector approaches your booth — not to interrogate, but to dismiss you.",
+      "",
+      "\"Inspector Selim-X. Your performance has been noted. Report to Senior Review on Monday. The State watches itself well when it watches itself through eyes like yours.\"",
+      "",
+      "You collect your things. The booth is taken over by your replacement before you reach the elevator.",
+      "",
+      "You're going up. You don't know what's up there."
+    ],
+    "promoted_dark": [
+      "The Inspector approaches your booth — not to interrogate, but to dismiss you.",
+      "",
+      "\"Inspector Selim-X. Your performance has been noted. Report to Senior Review on Monday.\"",
+      "",
+      "He hands you back your case ledger. \"Your reports balance perfectly. Almost too perfectly. We'll be in touch.\"",
+      "",
+      "You're going up. There's more than one way up."
+    ],
+    "continue_shift": [
+      "Your shift ends without incident.",
+      "",
+      "The Inspector's footsteps fade past your booth. You sit alone with the directives for next week — already updated, already longer.",
+      "",
+      "Tomorrow is another shift."
+    ]
+  }
+}

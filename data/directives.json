@@ -1,0 +1,29 @@
+{
+  "day": 3,
+  "directives": [
+    {
+      "number": 1,
+      "text": "Valid Neural ID Chip required (issued under 5 years).",
+      "rule_id": "valid_neural_id",
+      "is_critical": false
+    },
+    {
+      "number": 2,
+      "text": "Outsiders need a travel manifest. Astrakov citizens do not.",
+      "rule_id": "manifest_required_for_outsiders",
+      "is_critical": false
+    },
+    {
+      "number": 3,
+      "text": "BANNED — Hawkmoor sector residents (regardless of papers).",
+      "rule_id": "hawkmoor_banned",
+      "is_critical": true
+    },
+    {
+      "number": 4,
+      "text": "Minors must have a sponsor listed on the manifest.",
+      "rule_id": "minor_needs_sponsor",
+      "is_critical": false
+    }
+  ]
+}
