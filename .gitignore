@@ -22,6 +22,9 @@ ENV/
 .coverage
 htmlcov/
 
+#ACTION LOG
+data/actions.log
+
 # ── Editor / OS cruft ─────────────────────────────────────
 .vscode/
 .idea/

@@ -1,3 +1,5 @@
+
+
 # THRESHOLD
 
 THRESHOLD is a cyberpunk customs-interrogation game inspired by *Papers,
@@ -9,6 +11,14 @@ Mistakes cost rent and accumulate against the player. The shift resolves into
 one of three endings — PROMOTED, CONTINUE THE SHIFT, or ARRESTED — the last of
 which inverts the premise: Inspector Halmos arrives, reads the player's own
 wrong verdicts back to them, and the player must accept their fate.
+
+## Screenshots
+
+![Title screen](docs/threshold-title.png)
+
+![Traveler interrogation](docs/threshold-traveler.png)
+
+![Inspector Halmos arrest sequence](docs/threshold-arrest.png)
 
 ## How to run
 
