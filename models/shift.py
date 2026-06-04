@@ -9,13 +9,14 @@ Companion class WrongVerdict is a small value object representing one mistake,
 used by the Inspector's arrest speech.
 """
 
+from core.clock import DEFAULT_SHIFT_DURATION_SECONDS
 from exceptions import InvalidTravelerError
 
 
 VALID_ACTIONS = {"approve", "deny", "detain"}
 
 INITIAL_RENT = 10
-INITIAL_TIME_SECONDS = 150
+INITIAL_TIME_SECONDS = DEFAULT_SHIFT_DURATION_SECONDS
 TOTAL_TRAVELERS = 5
 STREAK_TRIGGER_THRESHOLD = 3
 TOTAL_ERROR_TRIGGER_THRESHOLD = 5

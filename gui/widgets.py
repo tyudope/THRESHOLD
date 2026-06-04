@@ -141,7 +141,7 @@ class StatsBar(tk.Frame):
 
     def __init__(self, parent):
         super().__init__(parent, bg=t.BG_PANEL, bd=1, relief="ridge")
-        self._time = self._cell("TIME", "02:30")
+        self._time = self._cell("TIME", "05:00")
         self._score = self._cell("SCORE", "0")
         self._rent = self._cell("RENT", "10")
         self._streak = self._cell("STREAK", "0")

@@ -129,7 +129,7 @@ class GameWindow(tk.Tk):
             return
 
         self.state = ShiftState()
-        self.clock = ShiftClock(150)
+        self.clock = ShiftClock()
 
         self._build_game_ui()
         self.clock.start()

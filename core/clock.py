@@ -17,7 +17,7 @@ from exceptions import ShiftExpiredError
 
 # Module-level constants
 
-DEFAULT_SHIFT_DURATION_SECONDS = 150 # 2:30
+DEFAULT_SHIFT_DURATION_SECONDS = 300 # 5:00
 TICK_INTERVAL_SECONDS = 1            # how often the timer thread updates.
 
 

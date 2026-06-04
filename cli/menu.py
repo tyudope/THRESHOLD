@@ -212,7 +212,7 @@ def run_game():
         return
 
     state = ShiftState()
-    clock = ShiftClock(150)
+    clock = ShiftClock()
 
     theme.clear_screen()
     ui.render_directives(catalog.ruleset)
