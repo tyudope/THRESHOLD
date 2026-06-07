@@ -43,7 +43,7 @@ from gui.widgets import (
 
 WIDTH = 920
 HEIGHT = 720
-FEEDBACK_PAUSE_MS = 8000
+FEEDBACK_PAUSE_MS = 5000
 
 
 class GameWindow(tk.Tk):
@@ -55,7 +55,7 @@ class GameWindow(tk.Tk):
         self.geometry(f"{WIDTH}x{HEIGHT}")
         self.configure(bg=t.BG_DARK)
 
-        # Domain objects - created when the shift actually starts.
+        # Domain objects created when the shift actually starts.
         self.catalog = None
         self.state = None
         self.clock = None

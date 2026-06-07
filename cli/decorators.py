@@ -1,6 +1,6 @@
 # cli/decorators.py
 """
-Custom decorators for THRESHOLD.
+Custom decorators.
 
 @log_action      logs game events to data/actions.log with a timestamp
 @reveal_slowly   prints text character-by-character or line-by-line for drama
@@ -48,11 +48,11 @@ def reveal_slowly(line_delay=DEFAULT_LINE_DELAY, char_delay=DEFAULT_CHAR_DELAY):
     Parameterized decorator. Wraps a generator that yields strings -
     prints each yielded line character-by-character with delays.
 
-    Usage:
-        @reveal_slowly(line_delay=0.8, char_delay=0.03)
-        def speak():
-            yield "Inspector Selim-X."
-            yield "..."
+    
+    @reveal_slowly(line_delay=0.8, char_delay=0.03)
+    def speak():
+        yield "Inspector Selim-X."
+        yield "..."
     """
 
     def decorator(func):

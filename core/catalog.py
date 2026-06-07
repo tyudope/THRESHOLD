@@ -1,13 +1,11 @@
 # core/catalog.py
 """
-Content loader for THRESHOLD.
+Content loader for game.
 
 Reads JSON files from data/, converts raw dicts into model objects, and
 exposes them through a single Catalog instance. Game code consumes the
 Catalog and never touches JSON directly.
 
-The catalog is the hydration boundary: untyped JSON enters here, typed
-domain objects exit here.
 """
 
 import json
@@ -25,7 +23,7 @@ TRAVELERS_FILE = DATA_DIR / "travelers.json"
 DIRECTIVES_FILE = DATA_DIR / "directives.json"
 DIALOGUE_FILE = DATA_DIR / "inspector_dialogue.json"
 
-# Private loaders - each reads one file and returns domain objects
+# Private loaders each reads one file and returns domain objects
 
 def _read_json(path):
     """Read and parse a JSON file. Raises CorruptedDataError on failure."""
@@ -129,10 +127,10 @@ def _load_dialogue(path=DIALOGUE_FILE):
     return _read_json(path)
 
 
-# Catalog - the public interface
+# Catalog the public interface
 
 class Catalog:
-    """The loaded content of THRESHOLD - travelers, ruleset, dialogue."""
+    """The loaded content of THRESHOLD travelers, ruleset, dialogue."""
 
     def __init__(self, travelers, ruleset, dialogue):
         self.travelers = list(travelers)        # defensive copy
@@ -150,7 +148,7 @@ class Catalog:
 
     @classmethod
     def load_from(cls, travelers_path, directives_path, dialogue_path):
-        """Load from specified paths - useful for tests."""
+        """Load from specified paths"""
         return cls(
             travelers=_load_travelers(travelers_path),
             ruleset=_load_ruleset(directives_path),

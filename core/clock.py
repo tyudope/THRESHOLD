@@ -1,7 +1,7 @@
 """
 Real-time shift clock for THRESHOLD.
 
-Runs the 2:30 countdown iun a background thread so the main game loop can display UI
+Runs the 5:00 countdown run a background thread so the main game loop can display UI
 and acept input while time ticks independently. When time hits zero, the clock sets
 'is_expired' flag that main loop checks between actions.
 
@@ -15,8 +15,7 @@ import threading
 from exceptions import ShiftExpiredError
 
 
-# Module-level constants
-
+#constants
 DEFAULT_SHIFT_DURATION_SECONDS = 300 # 5:00
 TICK_INTERVAL_SECONDS = 1            # how often the timer thread updates.
 
@@ -76,7 +75,7 @@ class ShiftClock:
         Manually deduct seconds from the clock.
         
         Used when the player takes a costly action (interrogation, reading the note).
-        Clamps at 0 - never goes negative.
+        Clamps at 0 never goes negative.
         """
         if not isinstance(seconds, int) or isinstance(seconds, bool):
             raise TypeError(

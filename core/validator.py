@@ -1,9 +1,9 @@
 # core/validator.py
 """
-Rules engine - validates a Traveler against a RuleSet of Directives.
+Rules engine validates a Traveler against a RuleSet of Directives.
 
 Pure functions, no side effects. Each rule has its own function for clarity
-and testability. The orchestrator `validate_traveler` runs them in order and
+and testability. The `validate_traveler` runs them in order and
 short-circuits at the first violation.
 
 The validator only handles document-based verdicts (approve/deny). Detection
@@ -15,8 +15,6 @@ from models.traveler import Traveler
 from models.directive import RuleSet
 
 # Result container
-
-
 class ValidationResult:
     """The output of running the validator: verdict + human-readable reason."""
 
@@ -39,7 +37,7 @@ class ValidationResult:
 
 
 # Individual rule functions
-# Contract: each takes a Traveler and returns (is_violated: bool, reason: str)
+# each takes a Traveler and returns (is_violated: bool, reason: str)
 
 
 def check_neural_id_valid(traveler):
@@ -77,7 +75,7 @@ def check_minor_has_sponsor(traveler):
     return (False, "")
 
 
-# Rule lookup - maps rule_id (from JSON) to checker function
+# Rule lookup maps rule_id (from JSON) to checker function
 
 RULE_CHECKERS = {
     "valid_neural_id":                check_neural_id_valid,
@@ -88,8 +86,6 @@ RULE_CHECKERS = {
 
 
 # Orchestrator
-
-
 def validate_traveler(traveler, ruleset):
     """
     Apply every directive in ruleset against the traveler.
@@ -127,7 +123,6 @@ def validate_traveler(traveler, ruleset):
 
 
 # Helper: list ALL violations (not just the first)
-
 
 def list_all_violations(traveler, ruleset):
     """Return a list of (directive_number, reason) tuples for every violation."""

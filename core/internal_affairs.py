@@ -3,10 +3,10 @@
 Internal Affairs handles arrest triggering and the role-reversal sequence.
 
 This module owns the dramatic core of the game: when the player fails
-(3 consecutive errors OR 5 total), Inspector Halmos arrives, reads the
-specific wrong verdicts aloud, and the player must ACCEPT THEIR FATE.
+(3 consecutive errors OR 5 total), Inspector arrives, reads the
+specific wrong verdicts, and the player must accept their fate..
 
-The speech is exposed as a generator so the CLI can pace each line
+The speech is exposed as a generator so the UI can pace each line
 independently perfect pairing with the @reveal_slowly decorator.
 """
 
@@ -91,7 +91,7 @@ def select_ending(state, review_triggered=False):
     """
     if not isinstance(state, ShiftState):
         raise TypeError(
-            f"state must be a ShiftState instance, got {type(state).__name__}"
+            f"state must be a Shift State instance, got {type(state).__name__}"
         )
     if not isinstance(review_triggered, bool):
         raise TypeError("review_triggered must be a bool")

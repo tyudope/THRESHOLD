@@ -16,7 +16,7 @@ from core.internal_affairs import select_ending
 # Result container
 
 class ShiftResult:
-    """The final summary of one shift - used by the CLI to render the ending."""
+    """The final summary of one shift."""
 
     def __init__(
         self,
@@ -38,7 +38,7 @@ class ShiftResult:
         self.ending_key = ending_key
         self.accepted_bribe = accepted_bribe
         self.note_read = note_read
-        self.wrong_verdicts = list(wrong_verdicts)    # defensive copy
+        self.wrong_verdicts = list(wrong_verdicts)
 
     def __repr__(self):
         return (
@@ -71,12 +71,6 @@ def accuracy_percentage(state):
 def format_wrong_verdicts(state):
     """
     Return a sorted list of formatted strings describing each wrong verdict.
-
-    Wrong verdicts are sorted by case_index so they read out in chronological
-    order, matching how Halmos's speech presents them.
-
-    Uses a lambda to extract the sort key - a textbook use of functions
-    as first-class values.
     """
     if not isinstance(state, ShiftState):
         raise TypeError(
@@ -91,18 +85,11 @@ def format_wrong_verdicts(state):
     ]
 
 
-# Main entry - build a ShiftResult from the final state
+# Main entry build a ShiftResult from the final state
 
 def compute_shift_result(state, review_triggered=False):
     """
     Build a ShiftResult summarizing this shift.
-
-    Args:
-        state:            final ShiftState
-        review_triggered: True if Internal Affairs intervened during the shift
-
-    Returns:
-        ShiftResult
     """
     if not isinstance(state, ShiftState):
         raise TypeError(

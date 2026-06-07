@@ -17,7 +17,7 @@ class Document:
     """Neural ID Chip carried by every traveler."""
 
     def __init__(self, name, age, sector, nationality, neural_id, id_age_years):
-        # --- name ---
+        # name
         if not isinstance(name, str):
             raise InvalidTravelerError(
                 f"name must be a string, got {type(name).__name__}"
@@ -26,7 +26,7 @@ class Document:
         if not name:
             raise InvalidTravelerError("name cannot be empty")
 
-        # --- age ---
+        # age
         if not isinstance(age, int) or isinstance(age, bool):
             raise InvalidTravelerError(
                 f"age must be an int, got {type(age).__name__}"
@@ -34,19 +34,19 @@ class Document:
         if age < 0:
             raise InvalidTravelerError("age cannot be negative")
 
-        # --- sector ---
+        # sector
         if not isinstance(sector, str) or not sector.strip():
             raise InvalidTravelerError("sector must be a non-empty string")
 
-        # --- nationality ---
+        # nationality
         if not isinstance(nationality, str) or not nationality.strip():
             raise InvalidTravelerError("nationality must be a non-empty string")
 
-        # --- neural_id ---
+        # neural_id
         if not isinstance(neural_id, str) or not neural_id.strip():
             raise InvalidTravelerError("neural_id must be a non-empty string")
 
-        # --- id_age_years ---
+        # id_age_years
         if not isinstance(id_age_years, int) or isinstance(id_age_years, bool):
             raise InvalidTravelerError(
                 f"id_age_years must be an int, got {type(id_age_years).__name__}"
@@ -60,7 +60,7 @@ class Document:
         self.nationality = nationality.strip()
         self.neural_id = neural_id.strip()
         self.id_age_years = id_age_years
-
+        
     def __repr__(self):
         return (
             f"Document(name='{self.name}', nationality='{self.nationality}', "
@@ -69,7 +69,7 @@ class Document:
 
 
 class Permit:
-    """Travel manifest - required for non-Astrakov citizens."""
+    """Travel manifest required for non-Astrakov citizens."""
 
     def __init__(self, manifest_id, valid_from, valid_to, sponsor):
         if not isinstance(manifest_id, str) or not manifest_id.strip():
@@ -93,7 +93,7 @@ class Permit:
 
 
 class Traveler:
-    """One person at Gate 9 - composes Document, optional Permit, and game metadata."""
+    """composes Document, optional Permit, and game data."""
 
     def __init__(
         self,
@@ -107,23 +107,23 @@ class Traveler:
         is_moral_case=False,
         has_bribe=False,
     ):
-        # --- document ---
+        # document
         if not isinstance(document, Document):
             raise InvalidTravelerError(
                 f"document must be a Document instance, got {type(document).__name__}"
             )
 
-        # --- permit (optional) ---
+        # permit (optional)
         if permit is not None and not isinstance(permit, Permit):
             raise InvalidTravelerError(
                 f"permit must be a Permit instance or None, got {type(permit).__name__}"
             )
 
-        # --- stated_purpose ---
+        # stated_purpose
         if not isinstance(stated_purpose, str) or not stated_purpose.strip():
             raise InvalidTravelerError("stated_purpose must be a non-empty string")
 
-        # --- portrait ---
+        # portrait
         if not isinstance(portrait, list):
             raise InvalidTravelerError(
                 f"portrait must be a list of strings, got {type(portrait).__name__}"
@@ -136,13 +136,13 @@ class Traveler:
                     f"all portrait lines must be strings, got {type(line).__name__}"
                 )
 
-        # --- correct_verdict ---
+        # correct_verdict
         if correct_verdict not in VALID_VERDICTS:
             raise InvalidTravelerError(
                 f"correct_verdict must be one of {VALID_VERDICTS}, got '{correct_verdict}'"
             )
 
-        # --- reason ---
+        # reason
         if not isinstance(reason, str) or not reason.strip():
             raise InvalidTravelerError("reason must be a non-empty string")
 
@@ -152,18 +152,18 @@ class Traveler:
                 f"tell must be a string or None, got {type(tell).__name__}"
             )
 
-        # --- is_moral_case ---
+        # is_moral_case
         if not isinstance(is_moral_case, bool):
             raise InvalidTravelerError("is_moral_case must be a bool")
 
-        # --- has_bribe ---
+        # has_bribe
         if not isinstance(has_bribe, bool):
             raise InvalidTravelerError("has_bribe must be a bool")
 
         self.document = document
         self.permit = permit
         self.stated_purpose = stated_purpose.strip()
-        self.portrait = list(portrait)        # defensive copy
+        self.portrait = list(portrait)        
         self.correct_verdict = correct_verdict
         self.reason = reason.strip()
         self.tell = tell.strip() if tell else None

@@ -28,7 +28,7 @@ TIME_COST_PER_QUESTION = 15
 TIME_COST_PER_NOTE_READ = 5
 
 
-class WrongVerdict:
+class WrongVerdict: 
     """One recorded mistake used by Halmos's arrest speech."""
 
     def __init__(self, case_index, traveler_name, chosen_action, violation):
@@ -110,7 +110,7 @@ class ShiftState:
         self.consecutive_errors = 0
 
     def record_wrong(self, case_index, traveler_name, chosen_action, violation):
-        """Player chose the wrong verdict. Add to history, bump errors, deduct rent."""
+        """Player chose the wrong verdict. Add to history, deduct rent."""
         wrong = WrongVerdict(case_index, traveler_name, chosen_action, violation)
         self.wrong_verdicts.append(wrong)
         self.total_errors += 1

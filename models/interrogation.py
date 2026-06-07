@@ -1,6 +1,6 @@
 # models/interrogation.py
 """
-Interrogation data model - one traveler's possible Q&A pairs and the
+Interrogation data model one traveler's possible Q&A pairs and the
 per-case session state that tracks what the player has asked.
 
 Each Traveler has a list of Question objects loaded with them. When the
@@ -16,22 +16,22 @@ class Question:
     """One Q&A pair the player can choose during interrogation."""
 
     def __init__(self, question_text, answer_text, contradiction_flag=None, is_bribe_offer=False):
-        # --- question_text ---
+        # question_text
         if not isinstance(question_text, str) or not question_text.strip():
             raise InvalidQuestionError("question_text must be a non-empty string")
 
-        # --- answer_text ---
+        # answer_text
         if not isinstance(answer_text, str) or not answer_text.strip():
             raise InvalidQuestionError("answer_text must be a non-empty string")
 
-        # --- contradiction_flag (optional) ---
+        # contradiction_flag (optional)
         if contradiction_flag is not None and not isinstance(contradiction_flag, str):
             raise InvalidQuestionError(
                 f"contradiction_flag must be a string or None, "
                 f"got {type(contradiction_flag).__name__}"
             )
 
-        # --- is_bribe_offer ---
+        # is_bribe_offer
         if not isinstance(is_bribe_offer, bool):
             raise InvalidQuestionError("is_bribe_offer must be a bool")
 
@@ -49,10 +49,10 @@ class Question:
 
 
 class InterrogationSession:
-    """Per-case state: tracks asked questions and remaining budget."""
+    """tracks asked questions and remaining budget."""
 
     def __init__(self, available_questions, max_questions=2, time_cost_per_question=15):
-        # --- available_questions ---
+        # available_questions
         if not isinstance(available_questions, list):
             raise InvalidQuestionError(
                 f"available_questions must be a list, "
@@ -67,13 +67,13 @@ class InterrogationSession:
                     f"got {type(q).__name__}"
                 )
 
-        # --- max_questions ---
+        # max_questions
         if not isinstance(max_questions, int) or isinstance(max_questions, bool):
             raise InvalidQuestionError("max_questions must be an int")
         if max_questions < 1:
             raise InvalidQuestionError("max_questions must be at least 1")
 
-        # --- time_cost_per_question ---
+        # time_cost_per_question
         if not isinstance(time_cost_per_question, int) or isinstance(time_cost_per_question, bool):
             raise InvalidQuestionError("time_cost_per_question must be an int")
         if time_cost_per_question < 0:

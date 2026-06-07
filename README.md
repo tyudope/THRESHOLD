@@ -73,7 +73,6 @@ interpreter against Tcl/Tk.
   detector (regex-based contradiction checks), the clock (a threaded real-time
   countdown), internal_affairs (the arrest sequence, built on a generator),
   verdict (end-of-shift scoring), and catalog (the JSON loader).
-- **storage/**: a small, generic JSON repository and serializer pair.
 - **data/**: all the game content as JSON (travelers, directives, dialogue).
 - **cli/**: the terminal side. Theme constants, a couple of custom decorators
   (`@log_action`, `@reveal_slowly`), pure rendering functions, and the main

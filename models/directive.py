@@ -1,12 +1,10 @@
 # models/directive.py
 """
-Directive and RuleSet models - the State's rules at the start of a shift.
+Directive and RuleSet models the State's rules at the start of a shift.
 
 Each Directive is a single rule with both human-readable text (shown to
 the player) and a machine identifier (used by the validator). A RuleSet
 groups all directives for one shift.
-
-This file is pure data - validation logic lives in core/validator.py.
 """
 
 from exceptions import InvalidDirectiveError
@@ -49,7 +47,7 @@ class RuleSet:
     """All directives in force during one shift."""
 
     def __init__(self, day, directives):
-        # --- day ---
+        # day
         if not isinstance(day, int) or isinstance(day, bool):
             raise InvalidDirectiveError(
                 f"day must be an int, got {type(day).__name__}"
@@ -57,7 +55,7 @@ class RuleSet:
         if day < 1:
             raise InvalidDirectiveError("day must be at least 1")
 
-        # --- directives ---
+        # directives
         if not isinstance(directives, list):
             raise InvalidDirectiveError(
                 f"directives must be a list, got {type(directives).__name__}"

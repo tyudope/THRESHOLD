@@ -1,10 +1,3 @@
-"""
-Custom exception hierarchy for THRESHOLD.
-
-All project-specific errors inherit from ThresholdError, allowing both broad ('catch any THRESHOLD error') and narrow ('catch only this specific type' ) exception handling.
-"""
-
-
 # Base class
 class ThresholdError(Exception):
     """Base exception for all THRESHOLD-specific errors."""

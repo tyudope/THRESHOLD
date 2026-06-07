@@ -32,7 +32,7 @@ from models.shift import (
 )
 
 # How long a verdict banner lingers before the next traveler.
-FEEDBACK_PAUSE_SECONDS = 8.0
+FEEDBACK_PAUSE_SECONDS = 5.0
 NOTE_PAUSE_SECONDS = 2.5
 
 
